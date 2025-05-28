@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Multi-Link | %%TITLE%%</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <!-- Облака (фон) -->
+  <div class="cloud cloud--1"></div>
+  <div class="cloud cloud--2"></div>
+  <div class="cloud cloud--3"></div>
+  <div class="cloud cloud--4"></div>
+  <div class="cloud cloud--5"></div>
+  <div class="cloud cloud--bottom"></div>
+
+  <!-- Подарки на шариках -->
+  <div class="gift-balloon gift-balloon--left">
+    <svg viewBox="0 0 60 100" width="60" height="100">
+      <g>
+        <ellipse cx="30" cy="20" rx="12" ry="18" fill="#FF6B6B"/>
+        <ellipse cx="18" cy="28" rx="10" ry="15" fill="#fff"/>
+        <ellipse cx="42" cy="28" rx="10" ry="15" fill="#fff"/>
+        <ellipse cx="30" cy="35" rx="8" ry="12" fill="#FF6B6B"/>
+        <line x1="30" y1="38" x2="30" y2="80" stroke="#e05252" stroke-width="2"/>
+        <rect x="20" y="80" width="20" height="15" rx="4" fill="#fff"/>
+        <rect x="28" y="80" width="4" height="15" fill="#FF6B6B"/>
+        <rect x="20" y="86" width="20" height="4" fill="#FF6B6B"/>
+      </g>
+    </svg>
+  </div>
+  <div class="gift-balloon gift-balloon--right">
+    <svg viewBox="0 0 60 100" width="60" height="100">
+      <g>
+        <ellipse cx="30" cy="20" rx="12" ry="18" fill="#FF6B6B"/>
+        <ellipse cx="18" cy="28" rx="10" ry="15" fill="#fff"/>
+        <ellipse cx="42" cy="28" rx="10" ry="15" fill="#fff"/>
+        <ellipse cx="30" cy="35" rx="8" ry="12" fill="#FF6B6B"/>
+        <line x1="30" y1="38" x2="30" y2="80" stroke="#e05252" stroke-width="2"/>
+        <rect x="20" y="80" width="20" height="15" rx="4" fill="#fff"/>
+        <rect x="28" y="80" width="4" height="15" fill="#FF6B6B"/>
+        <rect x="20" y="86" width="20" height="4" fill="#FF6B6B"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="container">
+    <header>
+      <div class="logo-wrap">
+        <img src="%%LOGO1%%" class="logo" alt="Логотип"/>
+      </div>
+      <h1>%%TITLE%%</h1>
+      <p class="subtitle">ВСЕГДА АКТУАЛЬНЫЕ ССЫЛКИ</p>
+      <div class="arrow-down">&#8595;</div>
+    </header>
+
+    <div class="links">
+      <a href="%%LINK1%%" class="link-button" id="btn-main" target="_blank">
+        <span class="btn-icon"> <!-- SVG -->
+          <svg width="28" height="28" viewBox="0 0 28 28"><circle cx="14" cy="14" r="14" fill="#fff"/><polygon points="10,8 20,14 10,20" fill="#FF6B6B"/></svg>
+        </span>
+        <span class="btn-text">ГЛАВНЫЙ БОТ</span>
+      </a>
+      <a href="%%LINK2%%" class="link-button" id="btn-reserve" target="_blank">
+        <span class="btn-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28"><circle cx="14" cy="14" r="14" fill="#fff"/><polygon points="10,8 20,14 10,20" fill="#FF6B6B"/><rect x="6" y="12" width="4" height="4" fill="#FF6B6B"/></svg>
+        </span>
+        <span class="btn-text">РЕЗЕРВНЫЙ БОТ</span>
+      </a>
+      <a href="%%LINK3%%" class="link-button" id="btn-channel" target="_blank">
+        <span class="btn-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28"><circle cx="14" cy="14" r="14" fill="#fff"/><path d="M8 20 Q14 10 20 20" stroke="#FF6B6B" stroke-width="2" fill="none"/><circle cx="14" cy="16" r="2" fill="#FF6B6B"/></svg>
+        </span>
+        <span class="btn-text">КАНАЛ</span>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // Подсветка кнопок по очереди
+    const btns = [
+      document.getElementById('btn-main'),
+      document.getElementById('btn-reserve'),
+      document.getElementById('btn-channel')
+    ];
+    let active = 0;
+    setInterval(() => {
+      btns.forEach((b,i) => b.classList.toggle('highlight', i===active));
+      active = (active+1)%btns.length;
+    }, 10000);
+  </script>
+</body>
+</html>
